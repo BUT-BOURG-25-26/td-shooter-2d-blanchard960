@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://by6b6n6l4j7is"]
+[gd_scene load_steps=5 format=3 uid="uid://by6b6n6l4j7is"]
 
 [ext_resource type="PackedScene" uid="uid://ct6s3civ264cy" path="res://scenes/Player.tscn" id="1_echbf"]
 [ext_resource type="Script" uid="uid://cci5ekpy615s6" path="res://scripts/killing_volume.gd" id="2_ibiss"]
 [ext_resource type="PackedScene" uid="uid://da0kxsrg2gb20" path="res://scenes/EnemySpawner.tscn" id="3_c6dvc"]
-[ext_resource type="PackedScene" uid="uid://btwls2defev6t" path="res://scenes/Enemy.tscn" id="4_611at"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6dvc"]
 size = Vector2(1033, 42.5)
@@ -36,9 +35,7 @@ position = Vector2(284, 1113)
 shape = SubResource("RectangleShape2D_c6dvc")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_c6dvc")]
-
-[node name="Enemy" parent="." instance=ExtResource("4_611at")]
-position = Vector2(267, -396)
+position = Vector2(300, -200)
 
 [connection signal="area_entered" from="KillingVolume" to="KillingVolume" method="_on_area_entered"]
 [connection signal="area_entered" from="KillingVolume2" to="KillingVolume2" method="_on_area_entered"]

@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(damage : int)-> void:
 	health -= damage
-	if (health<damage) :
+	if (health<=0) :
 		get_tree().reload_current_scene()
 	return 
 

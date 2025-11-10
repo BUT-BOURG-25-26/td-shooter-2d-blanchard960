@@ -6,8 +6,8 @@
 
 [node name="Enemy" instance=ExtResource("1_x1ub8")]
 script = ExtResource("2_p1d3b")
-frequency = 5.0
-amplitude = 800.0
+frequency = 2.0
+amplitude = 100.0
 sinus_speed_y = 100.0
 
 [node name="Sprite2D" parent="." index="0"]

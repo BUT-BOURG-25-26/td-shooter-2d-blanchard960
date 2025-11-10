@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdiybehaxaa0f"]
+
+[ext_resource type="Texture2D" uid="uid://ke4fw61ral4" path="res://KennyAssets/SpaceShooterRedux/UI/playerLife2_blue.png" id="1_d33tn"]
+
+[node name="LifeIcon" type="TextureRect"]
+texture = ExtResource("1_d33tn")
+expand_mode = 2
+stretch_mode = 5

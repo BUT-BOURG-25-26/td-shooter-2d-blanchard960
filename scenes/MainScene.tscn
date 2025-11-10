@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://d1q6k4q76dl2m" path="res://scripts/UI/score_display.gd" id="7_1wiy7"]
 [ext_resource type="FontFile" uid="uid://kebcj1dqllk2" path="res://KennyAssets/SpaceShooterRedux/Bonus/kenvector_future.ttf" id="7_cfq0f"]
 [ext_resource type="Script" uid="uid://bcjf2ng0m08nj" path="res://scripts/UI/life_holder_ui.gd" id="8_x537r"]
-[ext_resource type="Texture2D" uid="uid://ke4fw61ral4" path="res://KennyAssets/SpaceShooterRedux/UI/playerLife2_blue.png" id="9_cfq0f"]
+[ext_resource type="PackedScene" uid="uid://cdiybehaxaa0f" path="res://scenes/UI/Life_icon.tscn" id="10_cfq0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6dvc"]
 size = Vector2(1033, 42.5)
@@ -65,12 +65,7 @@ offset_right = 204.0
 offset_bottom = 50.0
 size_flags_horizontal = 0
 script = ExtResource("8_x537r")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/LifeHolder"]
-layout_mode = 2
-texture = ExtResource("9_cfq0f")
-expand_mode = 2
-stretch_mode = 5
+life_icon_scene = ExtResource("10_cfq0f")
 
 [connection signal="area_entered" from="KillingVolume" to="KillingVolume" method="_on_area_entered"]
 [connection signal="area_entered" from="KillingVolume2" to="KillingVolume2" method="_on_area_entered"]

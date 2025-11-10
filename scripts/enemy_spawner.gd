@@ -10,7 +10,7 @@ var rng = RandomNumberGenerator.new()
 @onready var spawn_timer = $SpawnTimer
 
 func _ready() -> void:
-	spawn_timer.start(1)
+	spawn_timer.start(randf_range(spawn_interval.x,spawn_interval.y))
 	spawn_timer.timeout.connect(spawn_enemy)
 
 func spawn_enemy() -> void :
@@ -33,5 +33,5 @@ func spawn_enemy() -> void :
 	enemy.global_position.x = rand_x
 	
 	get_tree().current_scene.add_child(enemy)
-	##spawn_timer.start(randf_range(spawn_interval.x,spawn_interval.y))
+	spawn_timer.start(randf_range(spawn_interval.x,spawn_interval.y))
 	return 

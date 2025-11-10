@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var bullet_scene : PackedScene
 @export var has_entered_screen: bool = false
 
+
 @onready var shoot_timer : Timer = $ShootTimer
 
 func _ready() -> void:
@@ -40,6 +41,7 @@ func is_in_camera_viewport() -> bool:
 		&& y_min <= global_position.y && global_position.y <= y_max
 
 func move_pattern() -> void :
+	
 	pass
 	
 func shoot(): 

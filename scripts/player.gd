@@ -3,6 +3,10 @@ extends CharacterBody2D
 
 @export var move_speed:float = 500
 @export var move_threshold:float = 20
+@export var health: int = 5
+@export var max_health : int = 5
+
+
 
 var move_inputs: Vector2
 
@@ -20,3 +24,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	return
+
+
+func take_damage(damage : int)-> void:
+	if (health<damage) :
+		health = 0
+	else :
+		health -= damage

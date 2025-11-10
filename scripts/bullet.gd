@@ -10,7 +10,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Enemy :
+	if body is Enemy && is_allied :
 		(body as Enemy).take_damage()
 		queue_free()
-	pass # Replace with function body.
+	if body is Player && !is_allied :
+		(body as Player).take_damage(1)
+		queue_free()
+	return

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ca513f5s5u4ji" path="res://KennyAssets/SpaceShooterRedux/Enemies/enemyRed1.png" id="1_3gvst"]
 [ext_resource type="Script" uid="uid://c476aelvdllnr" path="res://scripts/enemy.gd" id="1_55jtl"]
-[ext_resource type="PackedScene" uid="uid://bdb16aneu2apg" path="res://scenes/Bullet.tscn" id="2_mpr68"]
+[ext_resource type="PackedScene" uid="uid://37yyybwevj5s" path="res://scenes/enemy_bullet.tscn" id="2_mpr68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
 

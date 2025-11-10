@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://37yyybwevj5s"]
+
+[ext_resource type="PackedScene" uid="uid://bdb16aneu2apg" path="res://scenes/Bullet.tscn" id="1_qx7rs"]
+[ext_resource type="Texture2D" uid="uid://ktd0u0goislq" path="res://KennyAssets/SpaceShooterRedux/Lasers/laserRed02.png" id="2_38r62"]
+
+[node name="EnemyBullet" instance=ExtResource("1_qx7rs")]
+is_allied = false
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_38r62")

@@ -16,6 +16,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if !GameManager.is_game_running:
+		return
 	if (is_in_camera_viewport() || has_entered_screen):
 		if !has_entered_screen:
 			has_entered_screen = true

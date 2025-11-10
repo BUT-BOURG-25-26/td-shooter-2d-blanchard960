@@ -6,6 +6,8 @@ extends Area2D
 
 
 func _physics_process(delta: float) -> void:
+	if !GameManager.is_game_running:
+		return
 	global_position.y += -speed * delta if is_allied else speed * delta
 
 

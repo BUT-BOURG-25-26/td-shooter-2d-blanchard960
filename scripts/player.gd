@@ -16,6 +16,8 @@ func _ready() -> void:
 	shoot_timer.timeout.connect(shoot)
 
 func _physics_process(delta: float) -> void:
+	if !GameManager.is_game_running:
+		return
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	velocity.x = x_input * speed
 	
@@ -38,7 +40,7 @@ func _physics_process(delta: float) -> void:
 func take_damage(damage : int)-> void:
 	health -= damage
 	if (health <= 0) :
-		get_tree().reload_current_scene()
+		GameManager.game_over()
 	return 
 
 

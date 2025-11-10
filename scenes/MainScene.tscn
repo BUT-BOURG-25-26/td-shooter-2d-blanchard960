@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://by6b6n6l4j7is"]
+[gd_scene load_steps=15 format=3 uid="uid://by6b6n6l4j7is"]
 
 [ext_resource type="PackedScene" uid="uid://ct6s3civ264cy" path="res://scenes/Player.tscn" id="1_echbf"]
 [ext_resource type="Script" uid="uid://cci5ekpy615s6" path="res://scripts/killing_volume.gd" id="2_ibiss"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://blm76w0arqj67" path="res://scenes/Enemy/sliding_enemy.tscn" id="6_u1u68"]
 [ext_resource type="Script" uid="uid://d1q6k4q76dl2m" path="res://scripts/UI/score_display.gd" id="7_1wiy7"]
 [ext_resource type="FontFile" uid="uid://kebcj1dqllk2" path="res://KennyAssets/SpaceShooterRedux/Bonus/kenvector_future.ttf" id="7_cfq0f"]
+[ext_resource type="Script" uid="uid://df03ds6218wqe" path="res://scripts/UI/Ui_manager.gd" id="7_pjux3"]
 [ext_resource type="Script" uid="uid://bcjf2ng0m08nj" path="res://scripts/UI/life_holder_ui.gd" id="8_x537r"]
 [ext_resource type="PackedScene" uid="uid://cdiybehaxaa0f" path="res://scenes/UI/Life_icon.tscn" id="10_cfq0f"]
+[ext_resource type="Texture2D" uid="uid://d2ytjtptln2q7" path="res://KennyAssets/SpaceShooterRedux/Backgrounds/blue.png" id="12_o3jky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6dvc"]
 size = Vector2(1033, 42.5)
@@ -47,7 +49,8 @@ shape = SubResource("RectangleShape2D_c6dvc")
 position = Vector2(300, -300)
 enemy_scenes = Array[PackedScene]([ExtResource("4_ygjfp"), ExtResource("5_1wiy7"), ExtResource("6_u1u68")])
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["ui_manager"]]
+script = ExtResource("7_pjux3")
 
 [node name="Score" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
@@ -67,5 +70,44 @@ size_flags_horizontal = 0
 script = ExtResource("8_x537r")
 life_icon_scene = ExtResource("10_cfq0f")
 
+[node name="ButtonContainer" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Restart" type="Button" parent="CanvasLayer/ButtonContainer"]
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("7_cfq0f")
+text = "Restart"
+
+[node name="quit" type="Button" parent="CanvasLayer/ButtonContainer"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "quit"
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(256, 256)
+autoscroll = Vector2(0, 200)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+z_index = -10
+texture = ExtResource("12_o3jky")
+
 [connection signal="area_entered" from="KillingVolume" to="KillingVolume" method="_on_area_entered"]
 [connection signal="area_entered" from="KillingVolume2" to="KillingVolume2" method="_on_area_entered"]
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/Restart" to="CanvasLayer" method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/quit" to="CanvasLayer" method="_on_quit_pressed"]

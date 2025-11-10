@@ -1,1 +1,5 @@
-Configuration taille d'écran mobile -> pas réussi ????
+Configuration taille d'écran mobile -> pas réussi -> dans les params du projet
+
+get_local_mouse_position -> position relative à l'objet sur lequel le script est attaché
+
+threshold = limite

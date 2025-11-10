@@ -9,4 +9,4 @@ scale = Vector2(720, 1280)
 anchor_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("1_echbf")]
-position = Vector2(400, 800)
+position = Vector2(300, 800)

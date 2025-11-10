@@ -12,4 +12,6 @@ func _physics_process(delta: float) -> void:
 		match pattern :
 			1 :
 				global_position.x += speed * delta
+			2 :
+				pass
 	return 

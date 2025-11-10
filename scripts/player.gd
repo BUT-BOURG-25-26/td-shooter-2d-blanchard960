@@ -32,13 +32,12 @@ func _physics_process(delta: float) -> void:
 		if (collision.get_collider() is Enemy):
 			take_damage(1)
 			collision.get_collider().queue_free()
-
 	return
 
 
 func take_damage(damage : int)-> void:
 	health -= damage
-	if (health<=0) :
+	if (health <= 0) :
 		get_tree().reload_current_scene()
 	return 
 

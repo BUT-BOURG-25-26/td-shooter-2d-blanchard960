@@ -4,6 +4,15 @@ extends CharacterBody2D
 @export var outside_screen_speed: float = 800.0
 @export var speed: float = 100.0
 @export var offset_outside_screen: float = 100
+@export var shoot_interval:float = 0.75
+@export var bullet_scene : PackedScene
+
+@onready var shoot_timer : Timer = $ShootTimer
+
+func _ready() -> void:
+	shoot_timer.start(shoot_interval)
+	shoot_timer.timeout.connect(shoot)
+
 
 func _physics_process(delta: float) -> void:
 	if (is_in_camera_viewport()):
@@ -29,3 +38,10 @@ func is_in_camera_viewport() -> bool:
 
 func move_pattern() -> void :
 	pass
+	
+func shoot(): 
+	var bullet = bullet_scene.instantiate()
+	bullet.is_allied = false
+	bullet.global_position = global_position
+	get_tree().current_scene.add_child(bullet)
+	return

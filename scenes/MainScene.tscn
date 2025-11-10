@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://by6b6n6l4j7is"]
+[gd_scene load_steps=2 format=3 uid="uid://by6b6n6l4j7is"]
 
 [ext_resource type="PackedScene" uid="uid://ct6s3civ264cy" path="res://scenes/Player.tscn" id="1_echbf"]
-[ext_resource type="PackedScene" uid="uid://bdb16aneu2apg" path="res://scenes/Bullet.tscn" id="2_ibiss"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -11,6 +10,3 @@ anchor_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("1_echbf")]
 position = Vector2(300, 800)
-
-[node name="Bullet" parent="." instance=ExtResource("2_ibiss")]
-position = Vector2(300, 500)

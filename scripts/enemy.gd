@@ -45,3 +45,7 @@ func shoot():
 	bullet.global_position = global_position
 	get_tree().current_scene.add_child(bullet)
 	return
+
+func take_damage()-> void :
+	queue_free()
+	

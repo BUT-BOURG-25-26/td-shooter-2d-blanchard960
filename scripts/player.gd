@@ -7,9 +7,6 @@ extends CharacterBody2D
 @export var max_health : int = 5
 
 
-
-var move_inputs: Vector2
-
 	
 func _physics_process(delta: float) -> void:
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

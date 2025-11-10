@@ -7,15 +7,22 @@ extends CharacterBody2D
 @export var max_health : int = 5
 @export var shoot_interval:float = 0.75
 @export var bullet_scene : PackedScene
+@export var invicibility_time : float = 0.7
 
 @onready var shoot_timer : Timer = $ShootTimer
+@onready var invicibility_timer : Timer = $InvicibilityTimer
+@onready var animation : AnimationPlayer = $AnimationPlayer
 
+var is_invincible = false
 
 func _ready() -> void:
 	shoot_timer.start(shoot_interval)
 	shoot_timer.timeout.connect(shoot)
+	invicibility_timer.timeout.connect(on_invicibility_end)
 
 func _physics_process(delta: float) -> void:
+	
+	
 	if !GameManager.is_game_running:
 		return
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -38,9 +45,16 @@ func _physics_process(delta: float) -> void:
 
 
 func take_damage(damage : int)-> void:
+	if is_invincible || health <=0:
+		return
+	is_invincible = true
 	health -= damage
+	(get_viewport().get_camera_2d() as Camera).start_shake(false)
 	if (health <= 0) :
-		GameManager.game_over()
+		var timer = get_tree().create_timer(0.5).timeout.connect(GameManager.game_over)
+	else :
+		animation.play("glow")
+		invicibility_timer.start(invicibility_time)
 	return 
 
 
@@ -49,3 +63,7 @@ func shoot():
 	bullet.global_position = global_position
 	get_tree().current_scene.add_child(bullet)
 	return
+
+func on_invicibility_end():
+	is_invincible = false
+	animation.stop()

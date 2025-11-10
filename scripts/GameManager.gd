@@ -3,6 +3,7 @@ extends Node
 var current_score: int =0
 var is_game_running = true
 
+
 func increase_score(score) :
 	current_score += score
 
@@ -10,6 +11,7 @@ func game_over():
 	var uimanager : UIManager = get_tree().get_first_node_in_group("ui_manager")
 	uimanager.display_end_buttons(true)
 	is_game_running = false
+	(get_viewport().get_camera_2d() as Camera).start_shake(true)
 
 func restart():
 	get_tree().reload_current_scene()

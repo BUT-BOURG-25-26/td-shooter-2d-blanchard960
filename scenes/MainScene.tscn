@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cci5ekpy615s6" path="res://scripts/killing_volume.gd" id="2_ibiss"]
 [ext_resource type="PackedScene" uid="uid://da0kxsrg2gb20" path="res://scenes/EnemySpawner.tscn" id="3_c6dvc"]
 [ext_resource type="PackedScene" uid="uid://btwls2defev6t" path="res://scenes/Enemy/Enemy.tscn" id="4_ygjfp"]
-[ext_resource type="PackedScene" uid="uid://du37qcjs3fltl" path="res://scenes/Enemy/Enemy1.tscn" id="5_1wiy7"]
+[ext_resource type="PackedScene" uid="uid://du37qcjs3fltl" path="res://scenes/Enemy/Sinus_enemy.tscn" id="5_1wiy7"]
 [ext_resource type="PackedScene" uid="uid://blm76w0arqj67" path="res://scenes/Enemy/sliding_enemy.tscn" id="6_u1u68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6dvc"]

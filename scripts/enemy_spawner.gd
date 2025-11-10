@@ -5,7 +5,6 @@ extends Node2D
 @export var spawn_interval: Vector2
 @export var spawn_offset_y: float = 200
 @export var spawn_offset_x: float = 20
-var rng = RandomNumberGenerator.new()
 
 @onready var spawn_timer = $SpawnTimer
 
@@ -27,7 +26,7 @@ func spawn_enemy() -> void :
 	
 	var enemy = enemy_scenes.pick_random().instantiate()
 	
-	var rand_x = rng.randf_range(x_min, x_max)
+	var rand_x = randf_range(x_min, x_max)
 	
 	enemy.global_position.y = y_min - spawn_offset_y
 	enemy.global_position.x = rand_x

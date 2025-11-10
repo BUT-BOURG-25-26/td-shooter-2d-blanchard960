@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 			has_entered_screen = true
 			shoot_timer.start(shoot_interval)
 		velocity.y = 0.0
-		move_pattern()
+		move_pattern(delta)
 	elif !has_entered_screen :
 		velocity.y = outside_screen_speed
 	move_and_slide()
@@ -40,7 +40,7 @@ func is_in_camera_viewport() -> bool:
 	return x_min <= global_position.x && global_position.x <= x_max \
 		&& y_min <= global_position.y && global_position.y <= y_max
 
-func move_pattern() -> void :
+func move_pattern(delta: float) -> void :
 	pass
 
 func shoot(): 

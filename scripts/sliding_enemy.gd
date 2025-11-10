@@ -13,7 +13,7 @@ func _ready() -> void:
 	else :
 		current_x_direction = -1.0
 	
-func move_pattern():
+func move_pattern(delta: float):
 	var camera = get_viewport().get_camera_2d()
 	var visible_rect = get_viewport().get_visible_rect()
 	

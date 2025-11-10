@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://blm76w0arqj67"]
+
+[ext_resource type="PackedScene" uid="uid://btwls2defev6t" path="res://scenes/Enemy/Enemy.tscn" id="1_4glpm"]
+[ext_resource type="Script" uid="uid://kusxutnysop0" path="res://scripts/sliding_enemy.gd" id="2_0akxk"]
+[ext_resource type="Texture2D" uid="uid://h1q7kw1gkeac" path="res://KennyAssets/SpaceShooterRedux/Enemies/enemyRed3.png" id="2_y7t3r"]
+
+[node name="Enemy" instance=ExtResource("1_4glpm")]
+script = ExtResource("2_0akxk")
+sliding_speed_x = 300.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_y7t3r")

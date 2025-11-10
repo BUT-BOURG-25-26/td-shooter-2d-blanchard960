@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://du37qcjs3fltl"]
+
+[ext_resource type="PackedScene" uid="uid://btwls2defev6t" path="res://scenes/Enemy/Enemy.tscn" id="1_gdtni"]
+[ext_resource type="Texture2D" uid="uid://c51yrf65esmlf" path="res://KennyAssets/SpaceShooterRedux/Enemies/enemyRed2.png" id="2_eclow"]
+
+[node name="Enemy" instance=ExtResource("1_gdtni")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_eclow")

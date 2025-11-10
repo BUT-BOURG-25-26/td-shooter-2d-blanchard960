@@ -9,7 +9,7 @@
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 script = ExtResource("1_v6fml")
-bulletScene = ExtResource("2_mdl7e")
+bullet_scene = ExtResource("2_mdl7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_3li8b")

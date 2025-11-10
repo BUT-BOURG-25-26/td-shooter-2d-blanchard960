@@ -5,15 +5,15 @@ extends CharacterBody2D
 @export var move_threshold:float = 20.0
 @export var health: int = 5
 @export var max_health : int = 5
-@export var shootInterval:float = 0.75
-@export var bulletScene : PackedScene
+@export var shoot_interval:float = 0.75
+@export var bullet_scene : PackedScene
 
-@onready var shootTimer : Timer = $ShootTimer
+@onready var shoot_timer : Timer = $ShootTimer
 
 
 func _ready() -> void:
-	shootTimer.start(shootInterval)
-	shootTimer.timeout.connect(shoot)
+	shoot_timer.start(shoot_interval)
+	shoot_timer.timeout.connect(shoot)
 
 func _physics_process(delta: float) -> void:
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -39,7 +39,7 @@ func take_damage(damage : int)-> void:
 
 
 func shoot(): 
-	var bullet = bulletScene.instantiate()
+	var bullet = bullet_scene.instantiate()
 	bullet.global_position = global_position
 	get_tree().current_scene.add_child(bullet)
 	return

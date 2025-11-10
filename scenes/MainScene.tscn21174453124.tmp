@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://by6b6n6l4j7is"]
+[gd_scene load_steps=9 format=3 uid="uid://by6b6n6l4j7is"]
 
 [ext_resource type="PackedScene" uid="uid://ct6s3civ264cy" path="res://scenes/Player.tscn" id="1_echbf"]
 [ext_resource type="Script" uid="uid://cci5ekpy615s6" path="res://scripts/killing_volume.gd" id="2_ibiss"]
@@ -7,14 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://du37qcjs3fltl" path="res://scenes/Enemy/Sinus_enemy.tscn" id="5_1wiy7"]
 [ext_resource type="PackedScene" uid="uid://blm76w0arqj67" path="res://scenes/Enemy/sliding_enemy.tscn" id="6_u1u68"]
 [ext_resource type="Script" uid="uid://d1q6k4q76dl2m" path="res://scripts/UI/score_display.gd" id="7_1wiy7"]
-[ext_resource type="FontFile" uid="uid://kebcj1dqllk2" path="res://KennyAssets/SpaceShooterRedux/Bonus/kenvector_future.ttf" id="7_cfq0f"]
-[ext_resource type="Script" uid="uid://bcjf2ng0m08nj" path="res://scripts/life_holder_ui.gd" id="8_x537r"]
-[ext_resource type="Texture2D" uid="uid://ke4fw61ral4" path="res://KennyAssets/SpaceShooterRedux/UI/playerLife2_blue.png" id="9_cfq0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6dvc"]
 size = Vector2(1033, 42.5)
-
-[sub_resource type="LabelSettings" id="LabelSettings_pjux3"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -56,19 +51,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("7_cfq0f")
-label_settings = SubResource("LabelSettings_pjux3")
 script = ExtResource("7_1wiy7")
-
-[node name="LifeHolder" type="HBoxContainer" parent="CanvasLayer"]
-offset_right = 200.0
-offset_bottom = 100.0
-size_flags_horizontal = 0
-script = ExtResource("8_x537r")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/LifeHolder"]
-layout_mode = 2
-texture = ExtResource("9_cfq0f")
 
 [connection signal="area_entered" from="KillingVolume" to="KillingVolume" method="_on_area_entered"]
 [connection signal="area_entered" from="KillingVolume2" to="KillingVolume2" method="_on_area_entered"]

@@ -51,4 +51,5 @@ func shoot():
 
 func take_damage()-> void :
 	queue_free()
+	GameManager.increase_score(10)
 	

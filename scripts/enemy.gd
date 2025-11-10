@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var shoot_interval:float = 0.75
 @export var bullet_scene : PackedScene
 @export var has_entered_screen: bool = false
+@export var offset_x: float = 20
+@export var go_right: bool = true
 
 
 @onready var shoot_timer : Timer = $ShootTimer
@@ -41,9 +43,21 @@ func is_in_camera_viewport() -> bool:
 		&& y_min <= global_position.y && global_position.y <= y_max
 
 func move_pattern() -> void :
+	var camera = get_viewport().get_camera_2d()
+	var visible_rect = get_viewport().get_visible_rect()
 	
-	pass
+	var x_min = camera.get_screen_center_position().x - (visible_rect.size.x/2) + offset_x
+	var x_max = camera.get_screen_center_position().x + (visible_rect.size.x/2) - offset_x
 	
+	if (global_position.x >= x_max || global_position.x <= x_min) :
+		go_right = !go_right
+	velocity.x = speed if go_right else -speed
+	
+	return
+
+
+
+
 func shoot(): 
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = global_position
